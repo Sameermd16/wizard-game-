@@ -3,24 +3,12 @@
 //constructor function 
 //new array constructor method .fill() 
 //Object.assign(target, source)
-
-// const hero = {
-//    elementId: 'hero',
-//    name: 'Wizard',
-//    avatar: "images/wizard.png",
-//    health: 60,
-//    diceCount: 3
-// }
-// const monster = {
-//    elementId: 'monster',
-//    name: 'Orc',
-//    avatar: "images/orc.png",
-//    health: 10,
-//    diceCount: 1
-// }
+//.reduce()
 
 import  { characterData }  from "./data.js"
 import { Character } from "./Character.js"
+import { getDiceRollArray, getDicePlaceholderHtml } from "./utils.js"
+
 
 
 // function getDiceHtml(diceCount) {
@@ -54,6 +42,7 @@ import { Character } from "./Character.js"
 //    `
 // }
 
+
 const wizard = new Character(characterData.hero)
 // console.log(wizard)
 wizard.getCharacterHtml()
@@ -67,4 +56,13 @@ function render() {
    document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml()
    document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml()
 }
+
+function attack() {
+   render()
+}
+
+
+
+document.getElementById('attack-button').addEventListener('click', attack)
+
 render()
