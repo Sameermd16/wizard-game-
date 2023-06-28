@@ -44,12 +44,12 @@ import { getDiceRollArray, getDicePlaceholderHtml } from "./utils.js"
 
 
 const wizard = new Character(characterData.hero)
-// console.log(wizard)
+console.log(wizard)
 wizard.getCharacterHtml()
 // console.log(wizard.getCharacterHtml)
 
 const orc = new Character(characterData.monster)
-// console.log(orc)
+console.log(orc)
 orc.getCharacterHtml()
 
 function render() {
@@ -58,10 +58,33 @@ function render() {
 }
 
 function attack() {
+   wizard.getDiceHtml()
+   orc.getDiceHtml()
+   wizard.takeDamage(orc.currentDiceScore)
+   orc.takeDamage(wizard.currentDiceScore)
    render()
+   if(wizard.dead || orc.dead) {
+      endGame()
+   }
 }
 
-
+function endGame() {
+   const endMessage = wizard.health === 0 && orc.health === 0 ? 'No victors- both are dead'
+      : wizard.health > 0 ? 'The Wizard wins'
+      : 'The Orc is victorious'
+   // console.log(endMessage)
+   const endEmoji = wizard.health === 0 && orc.health === 0 ? '☠️'
+      : wizard.health > 0 ? "🔮"
+      : '☠️'
+      // console.log(endEmoji)
+   document.body.innerHTML = `
+      <div class="end-game">
+         <h2>Game Over</h2>
+         <h3>${endMessage}</h3>
+         <p class="end-emoji">${endEmoji}</p>
+      </div>
+   `
+}
 
 document.getElementById('attack-button').addEventListener('click', attack)
 
