@@ -19,4 +19,5 @@ function getPercentage(remainingHealth, maximumHealth) {
     return remainingHealth * 100 / maximumHealth
 }
 
+
  export { getDiceRollArray, getDicePlaceholderHtml, getPercentage}

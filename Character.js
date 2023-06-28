@@ -15,7 +15,7 @@ import { getDiceRollArray, getDicePlaceholderHtml, getPercentage } from "./utils
 //    health: 10,
 //    diceCount: 1
 // }
-let monstersArray = ['orc', 'demon', 'goblin']
+
 
 function Character(data) {
     // this.elementId = data.elementId
