@@ -17,14 +17,14 @@ const characterData = {
     },
     demon: {
       name: "Demon",
-      avatar: "images/demon.png",
+      avatar: "images/demon1.jpg",
       health: 25,
       diceCount: 2,
       currentDiceScore: []
    },
     goblin: {
          name: "Goblin",
-         avatar: "images/goblin.png",
+         avatar: "images/green goblin new.webp",
          health: 20,
          diceCount: 3,
          currentDiceScore: []
